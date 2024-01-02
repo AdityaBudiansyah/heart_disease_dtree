@@ -347,7 +347,7 @@ _ = tree.plot_tree(model,
                     filled=True)
 ```
 
-![Alt text](visualisasi_d-tree.png)
+![Alt text](visualisasi_dtree.png)
 
 ## Save model (pickle)
 
