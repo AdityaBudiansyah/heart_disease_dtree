@@ -8,11 +8,11 @@
 
 ## Domain Proyek
 
-Data mengenai prediksi harga ponsel ini digunakan sebagai bantuan atau pacuan dari harga ponsel apabila dilihat dari beberapa data atau aspek seperti merk,ukuran, berat, kualitas gambar,RAM, baterai maupun daya CPU
+Data ini mencakup berbagai informasi terkait kondisi penderita penyakit jantung. Informasi ini dapat berperan sebagai petunjuk untuk menentukan adanya kondisi yang serupa yang dialami oleh semua individu yang menderita penyakit jantung.
 
 ## Business Understanding
 
-Perkiraan ini dapat membantu untuk memperkirakan harga ponsel apabila hanya mengetahui speknya saja
+Perkiraan ini dapat memberikan wawasan dan pengetahuan tentang tanda atau karakteristik yang sama yang dimiliki oleh individu yang menderita penyakit jantung.
 
 Bagian laporan ini mencakup:
 
@@ -20,65 +20,56 @@ Bagian laporan ini mencakup:
 
 Menjelaskan pernyataan masalah latar belakang:
 
-- Kurangnya meluasnya sebaran informasi mengenai harga ponsel yang tersedia sehingga agak kesulitan untuk mengetahui harga ponsel
+- Terdapat banyak orang yang menderita penyakit jantung tetapi minimnya penyebaran informasi tentang penyebab dan tanda-tanda yang mungkin menunjukkan adanya penyakit jantung.
 
 ### Goals
 
 Menjelaskan tujuan dari pernyataan masalah:
 
-- Sebagai upaya untuk memprediksi harga ponsel berdasarkan speknya untuk ponsel yang sudah diluncurkan maupun belum diluncurkan
+- Untuk mengedukasi masyarakat tentang beberapa tanda atau kondisi yang berpotensi terkait penyakit jantung, dengan tujuan agar kesadaran mengenai penyakit jantung dapat ditingkatkan sejak dini di kalangan masyarakat.
 
 Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
 
 ### Solution statements
 
-- Pengembangan platform dari prediksi lemak dalam tubuh yang berbasis web adalah menggembangkan plagform yang berisi cara memperkirakan harga dari sebuah ponsel apabila hanya diketahui beberapa speknya saja, sehingga kita bisa mempekirakannya terlebih dahulu bahkan mungkin sebelum ponsel tersebut diluncurkan
-- Model yang dihasillkan dari datasets ini menggunakan metode Linear Regression.
+- Platform pengembangan berdasarkan data survei kondisi beberapa penderita penyakit jantung menyajikan sejumlah indikator seperti tekanan darah, kadar gula darah, kadar kolesterol, dan lain-lain. Hal ini bertujuan untuk menyimpulkan pola-pola yang serupa dalam kondisi yang diderita oleh penderita penyakit jantung. Indikator-indikator yang disurvei memiliki potensi untuk menjadi pemicu penyakit jantung dan upaya disosialisasikan kepada masyarakat agar dapat mengenali gejala sedari dini melalui indikator-indikator yang terdapat dalam platform.
+- Model yang dihasillkan dari datasets ini menggunakan metode Dtree.
 
 ## Data Understanding
 
-Harga ponsel bergantung pada berbagai faktor seperti resolusi, merek, ukuran, berat, kualitas gambar, RAM, baterai, dan daya cpu. Pada dataset ini, kami ingin memperkirakan harga ponsel menggunakan fitur-fitur di atas.
+Beberapa faktor yang diyakini memiliki peran dalam menyebabkan penyakit jantung meliputi tekanan darah, kadar gula darah, kadar kolesterol, dan detak jantung. Faktor-faktor ini dapat digunakan untuk memprediksi apakah seseorang yang memiliki indikator-indikator tersebut mengidap penyakit jantung atau tidak.
 
-[Mobile Price Predictionn](https://www.kaggle.com/datasets/mohannapd/mobile-price-prediction).
+[Heart Disease Prediction](https://www.kaggle.com/datasets/rishidamarla/heart-disease-prediction).
 
 Selanjutnya menguraikan seluruh variabel atau fitur pada data
 
 ### Variabel-variabel pada Global Video Game Sales adalah sebagai berikut:
 
-- Product_id : menunjukkan Product_id (int64)
-- Price : menunjukkan harga (int64)
-- Sale : menunjukkan penjualan (int64)
-- weight : menunjukkan bobot (float64)
-- resoloution: menunjukkan resolusi (float64)
-- ppi : menunjukkan ppi (int64)
-- cpu core : menunjukkan inti cpu (int64)
-- cpu freq : menunjukkan frekuensi cpu (float64)
-- internal mem : menunjukkan mem internal (float64)
-- ram : menunjukkan ram (float64)
-- RearCam : menunjukkan Kamera Belakang (float64)
-- Front Cam : Menunjukkan Kamera Depan (float64)
-- battery : menunjukkan baterai (int64)
-- thickness : menunjukkan ketebalan (float64)
+- Age : menunjukkan usia (int64)
+- Sex : menunjukkan jenis kelamin (int64)
+- Chest pain type : menunjukkan jenis nyeri dada (int64)
+- BP : menunjukkan tekanan darah (int64)
+- Cholesterol: menunjukkan kolestrol (int64)
+- FBS over 120 : menunjukkan gula darah (int64)
+- EKG results : menunjukkan hasil elektrokardiografi (int64)
+- Max HR : menunjukkan detak jantung maksimum (int64)
+- Exercise angina : menunjukkan angina akibat olahraga (int64)
+- ST depression : menunjukkan ST depression (int64)
+- Slope of ST : menunjukkan kemiringan puncak latihan segmen ST (int64)
+- Number of vessels : Menunjukkan jumlah pembuluh besar (int64)
+- Thallium : menunjukkan 0 = biasa; 1 = cacat tetap; 2 = cacat yang dapat dibalik (int64)
+- target : menunjukkan mengacu pada adanya penyakit jantung pada pasien. Bernilai bilangan bulat 0 = sakit dan 1 = tidak ada penyakit
+  (int64)
 
 ## Data Preparation
 
-### Data Collection
+## Data Collection
 
-Untuk data collection ini, saya mendapatkan dataset yang nantinya digunakan dari website kaggle dengan nama dataset Mobile Price Prediction
+Untuk data collection ini, saya mendapatkan dataset yang nantinya digunakan dari website kaggle dengan nama dataset Heart Disease
 
-### Data Discovery And Profiling
+## Import dataset
 
-Untuk bagian ini, kita akan menggunakan teknik EDA. <br>
-Pertama kita mengimport semua library yang dibutuhkan,
-
-```bash
-import pandas as pd
-import numpy as np
-import matplotlib.pypot as plt
-import seaborn as sns
-```
-
-Karena kita menggunakan google colab untuk mengerjakannya maka kita akan import files juga,
+Karena kita menggunakan google colab untuk mengerjakannya maka kita akan import files
 
 ```bash
 from google.colab import files
@@ -102,21 +93,36 @@ Setelah mengupload filenya, maka kita akan lanjut dengan membuat sebuah folder u
 lalu mari kita download datasetsnya
 
 ```bash
-!kaggle datasets download -d azadshahvaladov//mobile-price-prediction
+!kaggle datasets download -d rishidamarla/heart-disease-prediction
 ```
 
 Selanjutnya kita harus extract file yang tadi telah didownload
 
 ```bash
-!mkdir /mobile-price-prediction
-!unzip /mobile-price-prediction.zip -d /mobile-price-prediction
-!ls /mobile-price-prediction
+!mkdir heart-disease-prediction
+!unzip heart-disease-prediction -d heart-disease-prediction
+!ls heart-disease-prediction
 ```
+
+## Library yang digunakan
+
+```bash
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
+```
+
+## Data discovery
 
 Mari lanjut dengan memasukkan file csv yang telah diextract pada sebuah variable, dan melihat 5 data paling atas dari datasetsnya
 
 ```bash
-df = pd.read_csv('mobile-price-prediction/Cellphone.cs')
+df = pd.read_csv('heart-disease-prediction/Heart_Disease_Prediction.csv')
 df.head()
 ```
 
@@ -126,109 +132,231 @@ Untuk melihat mengenai type data dari masing masing kolom kita bisa menggunakan 
 df.info()
 ```
 
-kita rubah dulu nama kolomnya terlebih dahulu
+ringkasan statistik deskriptif dari DataFrame
 
 ```bash
-df.rename(columns={'cpu core': 'cpu_core', 'cpu freq': 'cpu_freq', 'internal mem': 'internal_mem'}, inplace=True)
-print("\nDataFrame setelah mengubah nama kolom")
-print(df)
+df.describe()
 ```
 
-Selanjutnya kita akan memeriksa apakah datasetsnya terdapat baris yang kosong atau null dengan menggunakan seaborn,
+menampilkan dimensi dari DataFrame, yaitu jumlah baris dan kolomnya
 
 ```bash
-sns.heatmap(df.isnull())
+df.shape
 ```
 
-![Alt text](heatmap.png) <br>
+menghitung jumlah kemunculan setiap nilai yang ada dalam kolom 'Heart_Disease' dalam DataFrame df.
+
+```bash
+df['Heart_Disease'].value_counts()
+```
+
+## EDA
 
 Mari kita lanjut dengan data exploration kita,
 
 ```bash
 plt.figure(figsize=(10,8))
-sns.heatmap(df.corr(), annot=True)
+sns.heatmap(df.corr(),annot=True)
 ```
 
-![Alt text](image.png)
+![Alt text](eda1.png) <br>
 
-## Modeling
-
-sebelumnya mari kita import library yang nanti akan digunakan,
+Menampilkan kolom age
 
 ```bash
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+plt.suptitle("Age")
+sns.scatterplot(data=df, x='Age', y=np.zeros(len(df['Age'])), hue=df['Heart_Disease'])
+plt.show()
 ```
+
+![Alt text](eda2.png)
+
+Menunjukkan jumlah pengamatan untuk setiap kategori dalam kolom 'Heart_Disease', dengan pembagian berdasarkan jenis kelamin ('Sex').
+
+```bash
+ax = sns.countplot(x='Heart_Disease', hue='Sex', data=df)
+legend_labels, _= ax.get_legend_handles_labels()
+ax.legend(legend_labels, ['Female','Male'], bbox_to_anchor=(1,1))
+plt.show()
+```
+
+![Alt text](eda3.png)
+
+Membandingkan jumlah pengamatan (count) untuk setiap kombinasi jenis nyeri dada ('Chest_pain_type') dengan kehadiran atau ketiadaan penyakit jantung ('Heart_Disease') dalam DataFrame df.
+
+```bash
+plt.suptitle('Chest pain type vs Heart Disease')
+sns.countplot(data=df, x='Heart_Disease', hue='Chest_pain_type')
+plt.show()
+```
+
+![Alt text](eda4.png)
+
+Membandingkan jumlah pengamatan (count) untuk setiap kombinasi hasil elektrokardiogram (EKG) ('EKG_results') dengan kehadiran atau ketiadaan penyakit jantung ('Heart_Disease') dalam DataFrame df.
+
+```bash
+plt.suptitle('EKG results vs Heart Disease')
+sns.countplot(data=df, x='Heart_Disease', hue='EKG_results')
+plt.show()
+```
+
+![Alt text](eda5.png)
+
+## Preprocessing
+
+Merubah nama data pada kolom di dataframe
+
+```bash
+df = df.rename(columns={'Chest pain type': 'Chest_pain_type', 'FBS over 120': 'FBS_over_120', 'EKG results': 'EKG_results', 'Max HR': 'Max_HR', 'Exercise angina': 'Exercise_angina', 'ST depression': 'ST_depression', 'Slope of ST': 'Slope_of_ST', 'Number of vessels fluro': 'Number_of_vessels_fluro', 'Heart Disease': 'Heart_Disease'})
+print("\nDataframe setelah perubahan:")
+print(df.dtypes)
+```
+
+Merubah isi pada setiap kolom Heart_disease menjadi 0 dan 1
+
+```bash
+df['Heart_Disease'] = df['Heart_Disease'].replace({'Presence': 0, 'Absence': 1})
+
+print("\nDataFrame setelah perubahan:")
+print(df)
+```
+
+merubah tipe data pada kolom ST_depression dan Heart_disease menjadi integer
+
+```bash
+df['ST_depression'] = df['ST_depression'].astype('int64')
+df['Heart_Disease'] = df['Heart_Disease'].astype('int64')
+print("\nTipe data setelah perubahan:")
+print(df.dtypes)
+```
+
+Mengecek kolom kosong pada dataframe
+
+```bash
+df.isna().sum()
+```
+
+Mengecek kolom kosong pada dataframe
+
+```bash
+df.to_csv('Heart-Disease-Prediction.csv')
+```
+
+## Modeling
 
 Langkah pertama adalah memasukkan kolom-kolom fitur yang ada di datasets dan juga kolom targetnya,
 
 ```bash
-features = ['weight','resoloution','ppi','cpu_core','cpu_freq','internal_mem','ram','RearCam','Front_Cam','battery','thickness']
-x = df[features]
-y = df['Price']
-x.shape, y.shape
+ind_col = [col for col in df.columns if col != 'Heart_Disease']
+dep_col = 'Heart_Disease'
+```
+
+Melihat isi dalam kolom label
+
+```bash
+df[dep_col].value_counts()
+```
+
+Nilai x untuk features dan nilai y untuk label
+
+```bash
+x = df[ind_col]
+y = df[dep_col]
 ```
 
 Selanjutnya kita akan menentukan berapa persen dari datasets yang akan digunakan untuk test dan untuk train
 
 ```bash
-x_train, X_test, y_train, y_test = train_test_split(x,y,random_state=70)
-y_test.shape
+x_train, x_test, y_train, y_test = train_test_split(x,y,random_state=70)
 ```
 
-lalu membuat mode dan memasukkan X_train dan y_train pada model dan memasukkan value predict pada y_pred,
+lalu membuat mode dan memasukkan X_train dan y_train pada model dan melihat score serta evaluasi f1 score
 
 ```bash
-lr = LinearRegression()
-lr.fit(x_train,y_train)
-pred = lr.predict(X_test)
+dtc = DecisionTreeClassifier(
+    ccp_alpha=0.0, class_weight=None, criterion='entropy',
+    max_depth=4, max_features=None, max_leaf_nodes=None,
+    min_impurity_decrease=0.0, min_samples_leaf=1,
+    min_samples_split=2, min_weight_fraction_leaf=0.0,
+    random_state=42, splitter='best'
+)
+
+model = dtc.fit(x_train, y_train)
+
+dtc_acc = accuracy_score(y_test, dtc.predict(x_test))
+
+print(f"akurasi data training = {accuracy_score(y_train, dtc.predict(x_train))}")
+print(f"akurasi data testing = {dtc_acc} \n")
+
+print(f"confusion matrix : \n {confusion_matrix(y_test, dtc.predict(x_test))}\n")
+confusion = confusion_matrix(y_test, dtc.predict(x_test))
+tn,fp,fn,tp = confusion.ravel()
+print(f"classification report : \n {classification_report(y_test, dtc.predict(x_test))}")
 ```
 
-sekarang kita bisa melihat score dari model kita,
+Berahasil mendapatkan score 0.8529411764705882
+
+Mari kita coba simulasi prediksi dengan Dtree
 
 ```bash
-score = lr.score(X_test, y_test)
-print('akurasi model regresi linier = ', score)
-```
+input_data = (70,1,4,130,322,0,2,109,0,2.4,2,3,3)
 
-Bagus juga, 0.9367779464202626, mari kita test menggunakan sebuah array value
+input_data_as_numpy_array = np.array(input_data)
 
-```bash
-input_data = np.array([[135,5.2,424,8,1.35,16,3,13,8,2610,7.4]])
+input_data_reshape = input_data_as_numpy_array.reshape(1,-1)
 
-prediction = lr.predict(input_data)
-print('Estimasi Price Mobile :', prediction)
+prediction = model.predict(input_data_reshape)
+print(prediction)
+
+if(prediction[0]==0):
+  print('Pasien terkena penyakit jantung')
+else:
+  print('Pasien tidak terkena penyakit jantung')
 ```
 
 berhasil!!, sekarang modelnya sudah selesai, mari kita export sebagai sav agar nanti bisa kita gunakan pada project web streamlit kita.
 
+## Evaluation
+
+Disini saya menggunakan f1 score sebagai metrik evaluasi.
+
+F1 score adalah metrik evaluasi yang digunakan dalam permasalahan klasifikasi untuk mengukur keseimbangan antara presisi (precision) dan recall. F1 score menggabungkan kedua metrik ini menjadi satu skor tunggal dan berguna ketika keseimbangan antara false positives dan false negatives penting dalam konteks tertentu.
+
+Rumus F1 score adalah:
+precision = TP / (TP + FP)
+recall = TP / (TP + FN)
+
+f1*score = 2 * (precision \ recall) / (precision + recall)
+
+Setelah itu saya menerapkannya dalam kode menggunakan fungsi f1 score, seperti berikut :
+
+```bash
+print(f"classification report : \n {classification_report(y_test, dtc.predict(x_test))}")
+```
+
+dan hasil yang saya dapatkan adalah 0.83, itu berarti model ini memiliki keseimbangan yang lumayan baik antara presisi dan recall.
+
+## Visualisasi hasil algoritma
+
+```bash
+import matplotlib.pyplot as plt
+fig = plt.figure(figsize=(25,20))
+_ = tree.plot_tree(model,
+                    feature_names=ind_col,
+                    class_names=['Presence', 'Absence'],
+                    filled=True)
+```
+
+![Alt text](visualisasi_d-tree.png)
+
+## Save model (pickle)
+
 ```bash
 import pickle
 
-filename = 'estimasi_Mobile_Price_rediction.sav'
-pickle.dump(lr,open(filename,'wb'))
+filename = 'heart_disease_prediction.sav'
+pickle.dump(dtc,open(filename,'wb'))
 ```
-
-## Evaluation
-
-Disini saya menggunakan R2 score sebagai metrik evaluasi.
-
-R-squared atau R2 pada dasarnya digunakan untuk melihat bagaimana penambahan variabel independen membantu menjelaskan varians variabel dependen. Secara umum R2 dapat memberikan ukuran seberapa baik model dalam menjelaskan variabel dependen (variabel yang dipengaruhi) atau goodness of fit.
-
-R2 secara definisi merupakan rasio dari varians yang dijelaskan oleh variabel independen (penjelas) dibandingkan varians tanpa adanya variabel independen, berikut rumus dari R2.
-
-R2 = SSE/SST = 1 - SSR/SST
-
-Setelah itu saya menerapkannya dalam kode menggunakan fungsi r2_score, seperti berikut :
-
-```bash
-from sklearn.metrics import r2_score
-
-r2 = r2_score(y_test, pred)
-print('r2 score for perfect model is', r2)
-```
-
-dan hasil yang saya dapatkan adalah 0.9367779464202626, itu berarti model ini memiliki keseimbangan yang baik antara presisi dan recall.
 
 ## Deployment
 
