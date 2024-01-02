@@ -1,7 +1,7 @@
 import streamlit as st
 from web_fungtions import load_data
 
-from Tabs import home, predict, visualise
+from tabs import home, predict, visualise
 
 Tabs = {
     "Home" : home,
