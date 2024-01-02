@@ -360,8 +360,6 @@ pickle.dump(dtc,open(filename,'wb'))
 
 ## Deployment
 
-[My Estimation App](https://appmobileprice-aditya.streamlit.app/).
-
-![Alt text](app_streamlit.png)
+https://app-heartdiseasedtree-by-aditya-budiansyah.streamlit.app/
 
 ##
