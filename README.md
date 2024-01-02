@@ -149,7 +149,7 @@ menghitung jumlah kemunculan setiap nilai yang ada dalam kolom 'Heart_Disease' d
 ```bash
 df['Heart_Disease'].value_counts()
 ```
-disini belum bisa jalan karna kita proesing dulu di bagian preprocessing merubah nama pada kolom Heart_Disease
+disini belum bisa jalan karna kita proesing dulu di bagian preprocessing merubah nama pada kolom 'Heart Disease'
 
 ## EDA
 
